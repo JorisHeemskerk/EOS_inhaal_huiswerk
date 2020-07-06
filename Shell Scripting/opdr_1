@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+case $1 in #checks if file is .py .bs .cc or no extention, does the corresponding actions
+	*.py)
+		python3 $1
+		;;
+	*.bs)
+		bash $1
+		;;
+	*.cc)
+		cat $1
+		;;
+	*)
+		echo -n "unsupported file type" 
+		;;
+esac

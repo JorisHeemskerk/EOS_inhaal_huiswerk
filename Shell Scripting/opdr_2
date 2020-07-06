@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+for i in $1*.jpg	#Goes through all jpg files in a given directory
+do
+	echo $i
+	convert $i -resize geometry 128x128  $i.png
+done

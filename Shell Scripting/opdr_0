@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir Afbeeldingen
+find $1 -name '*.png*' | xargs -i mv {} Afbeeldingen
+find $1 -name '*.jpg*' | xargs -i mv {} Afbeeldingen

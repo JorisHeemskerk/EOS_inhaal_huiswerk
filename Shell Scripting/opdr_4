@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+touch $1
+
+
+echo "Username: "
+read name
+
+
+if [ "$name" = "" ];then #checks if name is empty
+	name=$(whoami)
+fi
+echo "Username: $name" >> $1
+echo "Username saved to $1"
+
+password_1="$temp1"
+password_2="$temp2" 
+length=${#password_1}
+
+
+while [ "$password_1" != "$password_2" ] || [ $length -le 8 ];
+do
+	echo "Password (min 8 char): " #asks user for password
+	read password_1
+	echo "Enter again: " #ask aigan
+	read password_2
+	echo
+	length=${#password_1}
+done
+
+hash="$(echo -n "$password_1" | md5sum )"
+echo "Password: $hash" >> $1
+echo "Hashed password saved to $1"
+
